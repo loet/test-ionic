@@ -1,0 +1,29 @@
+<ion-view view-title="Personen">
+    <ion-content padding="false">
+        <div>{{message}}</div>
+        <div class="list">
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Vorname</span>
+                <input type="text" ng-model="person.firstname" placeholder="Vorname">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Nachname</span>
+                <input type="text" ng-model="person.lastname" placeholder="Nachname">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Email</span>
+                <input type="text" ng-model="person.email" placeholder="Email">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Ort</span>
+                <input type="text" ng-model="person.place" placeholder="Ort">
+            </label>
+        </div>
+
+        <div class="button-bar">
+            <a class="button" href="#/app/persons">Abbrechen</a>
+            <a class="button" ng-click="delete()">Löschen</a>
+            <a class="button" ng-click="save()">Speichern</a>
+        </div>
+    </ion-content>
+</ion-view>

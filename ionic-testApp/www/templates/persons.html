@@ -1,0 +1,13 @@
+<ion-view view-title="Personen">
+    <ion-content padding="false">
+        <p style="padding: 10px">
+            <a class="button icon icon-right ion-chevron-right" href="#/app/person">Person erfassen</a>
+        </p>
+        <ion-list>
+            <ion-item ng-repeat="person in persons" href="#/app/personupdate/{{person._id}}">
+                {{person.firstname}} {{person.lastname}}
+                {{person.place}}
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
