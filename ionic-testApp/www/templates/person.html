@@ -2,21 +2,68 @@
     <ion-content padding="false">
         <div>{{message}}</div>
         <div class="list">
-            <label class="item item-input item-floating-label">
+            <label class="item item-input ">
                 <span class="input-label">Vorname</span>
-                <input type="text" ng-model="person.firstname" placeholder="Vorname">
+                <input type="text" ng-model="person.firstname">
             </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label">Nachname</span>
-                <input type="text" ng-model="person.lastname" placeholder="Nachname">
+            <label class="item item-input ">
+                <span class="input-label">Name</span>
+                <input type="text" ng-model="person.lastname">
             </label>
-            <label class="item item-input item-floating-label">
+            <label class="item item-input ">
                 <span class="input-label">Email</span>
-                <input type="text" ng-model="person.email" placeholder="Email">
+                <input type="text" ng-model="person.email">
             </label>
-            <label class="item item-input item-floating-label">
+            <label class="item item-input ">
+                <span class="input-label">Adresse</span>
+                <input type="text" ng-model="person.street">
+            </label>
+            <label class="item item-input ">
+                <span class="input-label">PLZ</span>
+                <input type="text" ng-model="person.zip">
+            </label>
+            <label class="item item-input ">
                 <span class="input-label">Ort</span>
-                <input type="text" ng-model="person.place" placeholder="Ort">
+                <input type="text" ng-model="person.place">
+            </label>
+            <label class="item item-input ">
+                <span class="input-label">Land</span>
+                <input type="text" ng-model="person.country">
+            </label>
+            <ul>
+                <li class="item item-checkbox">
+                    <label class="checkbox">
+                        <input ng-model="person.student" type="checkbox">
+                    </label>
+                    Schüler
+                </li>
+                <li class="item item-checkbox">
+                    <label class="checkbox">
+                        <input ng-model="person.teacher" type="checkbox" ng-change="processTeacherSelection()">
+                    </label>
+                    Lehrer
+                </li>
+            </ul>
+            <div ng-if="person.teacher">
+                <div class="row">
+                    <div class="col"><label class="input-label">Lehrerqualifikationen</label></div>
+                    <div class="col col-50">
+                        <ul>
+                            <li class="item item-checkbox" style="border:none"
+                                ng-repeat="qualification in teacherqualifications">
+                                <label class="checkbox">
+                                    <input ng-model="selectedteacherqualification[qualification]" type="checkbox">
+                                </label>
+                                {{qualification}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <label class="item item-input ">
+                <span class="input-label">Bemerkungen</span>
+                <textarea type="text" ng-model="person.remarks"></textarea>
             </label>
         </div>
 

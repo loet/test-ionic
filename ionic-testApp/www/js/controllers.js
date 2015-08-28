@@ -54,6 +54,14 @@ angular.module('starter.controllers', [])
         $scope.person = person;
 
         $scope.save = function () {
+            var prop;
+            //convert teacherqualifaction into array
+            $scope.person.teacherqualifications = [];
+            for (prop in $scope.selectedteacherqualification) {
+                if ($scope.selectedteacherqualification[prop] === true) {
+                    $scope.person.teacherqualifications.push(prop);
+                }
+            }
             if (person._id) {
                 $http.put('http://localhost:8080/api/persons/' + person._id, $scope.person).then(
                     function (result) {
@@ -81,7 +89,21 @@ angular.module('starter.controllers', [])
                     $scope.message = JSON.stringify(error.data.message);
                 }
             );
+        };
+
+        $scope.teacherqualifications = ['Denken', 'Handeln', 'Kochen', 'Tanzen', 'Korrigieren', 'Surfen'];
+        $scope.selectedteacherqualification = {};
+
+        for (i = 0; $scope.person.teacherqualifications && i < $scope.person.teacherqualifications.length; i++) {
+            $scope.selectedteacherqualification[$scope.person.teacherqualifications[i]] = true;
         }
+
+        $scope.processTeacherSelection = function () {
+            if ($scope.person.teacher === false) {
+                $scope.selectedteacherqualification = undefined;
+                $scope.person.teacherqualifications = undefined;
+            }
+        };
     })
 
 ;

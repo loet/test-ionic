@@ -64,7 +64,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             .state('app.person', {
                 resolve: {
                     person: function () {
-                        return {};
+                        return {student: true};
                     }
                 },
                 url: '/person',
